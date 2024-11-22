@@ -1,9 +1,13 @@
 <template>
-  <div class="subscription-card">
+  <div
+    class="subscription-card"
+    :class="{ 'subscription-card_active': active }"
+  >
     <div class="subscription-card__content">
       <subscription-card-header
         :title="title"
         :category="category"
+        :preview="previewSrc.sm"
       />
       <div class="subscription-card__description">
         {{ description }}
@@ -19,7 +23,7 @@
     </div>
     <img
       class="subscription-card__preview"
-      :src="previewSrc"
+      :src="previewSrc.lg"
     />
   </div>
 </template>
@@ -44,8 +48,8 @@ const props = defineProps({
     default: null,
   },
   previewSrc: {
-    type: String,
-    default: null,
+    type: Object,
+    default: () => ({}),
   },
   amenities: {
     type: Array,
@@ -69,16 +73,16 @@ const actionSwitchLabel = computed(() => `Уже получает ${props.follow
 
 <style lang="scss" scoped>
 .subscription-card {
-  @apply flex bg-white rounded-2xl drop-shadow-[0_8px_16px_rgba(0,0,0,0.08)]
-    lg:p-6;
+  @apply flex bg-white transition-shadow
+    rounded-xl py-6 px-4
+    lg:p-6 lg:rounded-2xl;
 
   &__content {
-    @apply mr-6;
+    @apply w-full lg:mr-6;
   }
 
   &__description {
-    @apply text-gray
-      lg:text-sm lg:mt-2 lg:mb-4;
+    @apply text-gray text-sm mt-2 mb-4;
   }
 
   &__actions {
@@ -86,7 +90,11 @@ const actionSwitchLabel = computed(() => `Уже получает ${props.follow
   }
 
   &__preview {
-    @apply h-max;
+    @apply hidden h-max lg:block;
+  }
+
+  &.subscription-card_active {
+    @apply drop-shadow-[0_8px_16px_rgba(0,0,0,0.08)];
   }
 }
 </style>

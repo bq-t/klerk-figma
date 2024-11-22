@@ -31,7 +31,9 @@ defineProps({
 
 <style lang="scss" scoped>
 .navbar-item {
-  @apply cursor-pointer pb-4;
+  @apply cursor-pointer pb-4
+    px-2
+    lg:px-0;
 
   .navbar-item__link {
     @apply text-gray-500 transition-colors;

@@ -33,11 +33,12 @@ const navbarRoutes = [
 ]
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .app {
   &__heading {
-    @apply text-[3.5rem] leading-[4.5rem] text-center font-medium
-      mt-6;
+    @apply text-center font-medium
+      text-[2rem] leading-[2.625rem] mt-2
+      lg:text-[3.5rem] lg:leading-[4.5rem] lg:mt-6;
   }
 
   &__navbar {

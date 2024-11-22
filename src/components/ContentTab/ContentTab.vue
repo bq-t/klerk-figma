@@ -27,6 +27,7 @@ defineProps({
 
 <style lang="scss" scoped>
 .content-tab {
-  @apply bg-gray-50 rounded-2xl max-w-5xl;
+  @apply bg-gray-50 w-full
+    lg:rounded-2xl lg:max-w-5xl;
 }
 </style>

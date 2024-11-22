@@ -17,7 +17,9 @@ const inputValue = defineModel({
 
 <style lang="scss" scoped>
 .input {
-  @apply p-4 rounded-lg placeholder:text-gray-500;
+  @apply p-4 placeholder:text-gray-500
+    rounded
+    lg:rounded-lg;
 
   &:focus {
     @apply outline-0;

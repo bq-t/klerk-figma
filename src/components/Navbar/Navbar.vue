@@ -26,10 +26,12 @@ defineProps({
 const currentNavItem = ref(0)
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .navbar {
   .navbar__list {
-    @apply flex space-x-6;
+    @apply flex
+      space-x-4
+      lg:space-x-6;
   }
 }
 </style>

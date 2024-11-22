@@ -13,7 +13,12 @@
           class="subscriptions-tab__form-button"
           @click.prevent
         >
-          Подписаться
+          <span class="hidden lg:block">
+            Подписаться
+          </span>
+          <arrow-icon
+            class="lg:hidden"
+          />
         </form-button>
         <form-switch
           :model-value="followedAllSubscriptions"
@@ -38,6 +43,7 @@
 </template>
 
 <script setup>
+import ArrowIcon from '@/assets/icons/arrow.svg'
 // Form components
 import FormButton from '@/components/Button/Button'
 import FormInput from '@/components/Input/Input'
@@ -55,7 +61,10 @@ const availableSubscriptions = [
     category: 'Перед рассветом',
     title: 'Утренний бухгалтер',
     description: 'Самые важные новости и события за день. Кратко, по делу, структурировано.',
-    previewSrc: '/img/MorningAccountant.svg',
+    previewSrc: {
+      sm: '/img/MorningAccountantMobile.svg',
+      lg: '/img/MorningAccountant.svg',
+    },
     amenities: [
       {
         label: 'Новости для бухгалтеров, ИП и директора',
@@ -70,7 +79,10 @@ const availableSubscriptions = [
     category: 'После заката',
     title: 'Ночной бухгалтер',
     description: 'Самая краткая газета о налогах и бухучете в мире — современная рассылка для чтения.',
-    previewSrc: '/img/NightAccountant.svg',
+    previewSrc: {
+      sm: '/img/NightAccountantMobile.svg',
+      lg: '/img/NightAccountant.svg',
+    },
     amenities: [
       {
         label: 'Анализ, оценка и только самое главное',
@@ -85,7 +97,10 @@ const availableSubscriptions = [
     category: 'Раз в две недели',
     title: 'Ножницы скидок',
     description: 'Подборка самых выгодных и полезных спецпредложений от надежных компаний.',
-    previewSrc: '/img/DiscountScissors.svg',
+    previewSrc: {
+      sm: '/img/DiscountScissorsMobile.svg',
+      lg: '/img/DiscountScissors.svg',
+    },
     amenities: [
       {
         label: 'Акции и скидки от лидеров рынка',
@@ -100,7 +115,10 @@ const availableSubscriptions = [
     category: 'По мере появления анонсов',
     title: 'Чемодан вебинаров',
     description: 'Подборка с анонсами бесплатных вебинаровна самые топовые темы при участии экспертов.',
-    previewSrc: '/img/SuitcaseOfWebinars.svg',
+    previewSrc: {
+      sm: '/img/SuitcaseOfWebinarsMobile.svg',
+      lg: '/img/SuitcaseOfWebinars.svg',
+    },
     amenities: [
       {
         label: 'Никогда не пришлем платные вебинары',
@@ -158,11 +176,14 @@ const computedSubscriptions = computed(() => {
     @apply relative;
 
     &-input {
-      @apply w-[calc(100%-6.25rem)] pr-20;
+      @apply w-[calc(100%-1.75rem)] pr-10
+        lg:w-[calc(100%-6.25rem)] lg:pr-20;
     }
 
     &-button {
-      @apply absolute right-0;
+      @apply absolute right-0
+        p-4
+        lg:px-8;
     }
 
     &-switch {
@@ -171,7 +192,8 @@ const computedSubscriptions = computed(() => {
   }
 
   &__body {
-    @apply lg:grid lg:grid-cols-2 lg:gap-6;
+    @apply space-y-6
+      lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-6;
   }
 }
 </style>

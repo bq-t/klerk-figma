@@ -18,11 +18,13 @@ defineProps({
 
 <style lang="scss" scoped>
 .content-tab-header {
-  @apply pt-12 px-12;
+  @apply pt-8 px-4
+    lg:pt-12 lg:px-12;
 
   &__label {
-    @apply text-center text-2xl font-medium
-      mb-6;
+    @apply text-2xl font-medium
+      mb-4
+      lg:text-center lg:mb-6;
   }
 }
 </style>

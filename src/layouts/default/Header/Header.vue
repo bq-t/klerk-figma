@@ -38,7 +38,7 @@ const availableBreadcrumbs = [
     pt-6 lg:pt-12;
 
   &__breadcrumbs {
-    @apply lg:mt-6;
+    @apply mt-7 lg:mt-6;
   }
 }
 </style>

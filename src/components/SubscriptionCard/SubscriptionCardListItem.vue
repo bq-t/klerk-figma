@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import CheckIcon from '@/assets/icons/Check.svg'
+import CheckIcon from '@/assets/icons/check.svg'
 
 defineProps({
   label: {

@@ -1,0 +1,7 @@
+@use './tailwindcss.css';
+
+@layer base {
+  h1,h2,h3,p,a,div,input {
+    @apply font-roboto;
+  }
+}
